@@ -3,11 +3,13 @@ import {createStyles, makeStyles, Theme} from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import {Button, Container, FormControlLabel, Switch, TextField, Typography,} from "@material-ui/core";
-import Logo from "./assets/Logo.png";
+//import Logo from "./assets/Logo.png";
 import Signature from "./Signature";
 import {CheckOutlined, FileCopyOutlined} from "@material-ui/icons";
 import CircularProgressWithLabel from "./CircularProgressWithLabel";
 import "./App.css";
+
+let Logo = 'https://twosmallmen.com/wp-content/uploads/2022/10/Logo.png'
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -45,24 +47,26 @@ const useStyles = makeStyles((theme: Theme) =>
 export interface PhotoSignatureProps {
     fullName: string;
     position: string;
-    skype: string;
     phone: string;
+    email: string;
     photo: string;
 }
 
 interface State extends PhotoSignatureProps {
     withPhoto: boolean;
     copied: boolean;
+    htmlcopied: boolean;
 }
 
 const initialState: State = {
     fullName: "",
     position: "",
-    skype: "",
     phone: "",
+    email: "",
     photo: "",
     withPhoto: false,
     copied: false,
+    htmlcopied: false,
 };
 
 function App() {
@@ -89,8 +93,8 @@ function App() {
             if (
                 state.fullName &&
                 state.phone &&
+                state.email &&
                 state.position &&
-                state.skype &&
                 state.photo
             ) {
                 return (
@@ -98,31 +102,37 @@ function App() {
                         <Signature
                             fullName={state.fullName}
                             position={state.position}
-                            skype={state.skype}
                             phone={state.phone}
+                            email={state.email}
                             photo={state.photo}
                         />
                         <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+
                         <Button
                             disabled={state.photo.length > photoUrlMaxLength}
                             onClick={copyToClipboard}
                             endIcon={state.copied ? <CheckOutlined/> : <FileCopyOutlined/>}
                         >
-                            {state.copied ? "Copied" : "Copy to clipboard"}
+                            {state.copied ? "Copied" : "Copy For Outlook"}
                         </Button>
+
                         <Button
                             disabled={state.photo.length > photoUrlMaxLength}
-                            onClick={copyToClipboard}
-                            endIcon={state.copied ? <CheckOutlined/> : <FileCopyOutlined/>}
+                            onClick={copyToClipboardHubspot}
+                            endIcon={state.htmlcopied ? <CheckOutlined/> : <FileCopyOutlined/>}
                         >
-                            {state.copied ? "HTML Got" : "Get My Code"}
+                            {state.htmlcopied ? "Copied" : "Copy For Hubspot"}
                         </Button>
+        
                     </React.Fragment>
                 );
             } else {
                 Object.entries(state).forEach(([key, value]) => {
                     if (
-                        ["fullName", "phone", "position", "skype", "photo"].includes(key)
+                        ["fullName", "phone", "email", "position", "photo"].includes(key)
                     ) {
                         if (value.length === 0) {
                             progress = progress - 20;
@@ -131,28 +141,39 @@ function App() {
                 });
             }
         } else {
-            if (state.fullName && state.phone && state.position && state.skype) {
+            if (state.fullName && state.phone && state.email && state.position) {
                 return (
                     <React.Fragment>
                         <Signature
                             fullName={state.fullName}
                             position={state.position}
-                            skype={state.skype}
                             phone={state.phone}
-                            photo={"no-photo"}
+                            email={state.email}
+                            photo={"https://twosmallmen.com/wp-content/uploads/2022/10/Logo.png"}
                         />
+                        <br/>
+                        <br/>
+                        <br/>
                         <br/>
                         <Button
                             onClick={copyToClipboard}
                             endIcon={state.copied ? <CheckOutlined/> : <FileCopyOutlined/>}
                         >
-                            {state.copied ? "Copied" : "Copy to clipboard"}
+                            {state.copied ? "Copied" : "Copy For Outlook"}
                         </Button>
+                        <Button
+                            onClick={copyToClipboardHubspot}
+                            endIcon={state.htmlcopied ? <CheckOutlined/> : <FileCopyOutlined/>}
+                        >
+                            {state.htmlcopied ? "Copied" : "Copy For Hubspot"}
+                        </Button>
+                        <div></div>
+
                     </React.Fragment>
                 );
             } else {
                 Object.entries(state).forEach(([key, value]) => {
-                    if (["fullName", "phone", "position", "skype"].includes(key)) {
+                    if (["fullName", "phone", "email", "position"].includes(key)) {
                         if (value.length === 0) {
                             progress = progress - 25;
                         }
@@ -170,6 +191,8 @@ function App() {
             return <div>Please, input your data</div>;
         }
     };
+  
+
 
     const copyToClipboard = () => {
         let copyText = document.querySelector(".signature");
@@ -193,10 +216,30 @@ function App() {
             console.log("Fail");
         }
     };
-    var e=document.getElementById("htmlcode");
-    var content=e.innerHTML;
-    alert(content);
 
+    const copyToClipboardHubspot = () => {
+        let copyText = document.querySelector(".hubspot");
+        const range = document.createRange();
+        if (copyText) {
+            range.selectNode(copyText);
+        }
+        const windowSelection = window.getSelection();
+        if (windowSelection) {
+            windowSelection.removeAllRanges();
+            windowSelection.addRange(range);
+        }
+        try {
+            let successful = document.execCommand("copy");
+            console.log(successful ? "Success" : "Fail");
+            setState((prevState) => ({
+                ...prevState,
+                htmlcopied: true,
+            }));
+        } catch (err) {
+            console.log("Fail");
+        }
+    };
+    
     const isStateChanged = () => {
         return JSON.stringify(state) === JSON.stringify(initialState);
     };
@@ -211,14 +254,14 @@ function App() {
         <Container>
             <img className={classes.centeredImage} src={Logo} alt={"logo"}/>
             <Typography variant="h2" gutterBottom className={classes.centeredText}>
-                Signature generator
+                Email Signature generator
             </Typography>
             <Typography
                 variant="subtitle1"
                 gutterBottom
                 className={classes.centeredText}
             >
-                Two Small Men With Big Hearts Signature Generator
+                Generate Your Two Small Men Email Signature Today
             </Typography>
             <Grid container spacing={3}>
                 <Grid item xs={6}>
@@ -241,6 +284,7 @@ function App() {
                                 name={"position"}
                                 onChange={handleChange}
                             />
+                           
                             <TextField
                                 fullWidth={true}
                                 required
@@ -249,17 +293,15 @@ function App() {
                                 name={"phone"}
                                 onChange={handleChange}
                             />
-                            <FormControlLabel
-                                control={
-                                    <Switch
-                                        checked={state.withPhoto}
-                                        onChange={handleChange}
-                                        name="withPhoto"
-                                        color="primary"
-                                    />
-                                }
-                                label={state.withPhoto ? "Photo" : "No photo"}
+                             <TextField
+                                fullWidth={true}
+                                required
+                                label="Email"
+                                value={state.email}
+                                name={"email"}
+                                onChange={handleChange}
                             />
+                         
                             {state.withPhoto && (
                                 <TextField
                                     error={state.photo.length > photoUrlMaxLength}
@@ -283,6 +325,7 @@ function App() {
                             >
                                 Clear
                             </Button>
+                            <div></div>
                         </form>
                     </Paper>
                 </Grid>
@@ -295,3 +338,4 @@ function App() {
 }
 
 export default App;
+
