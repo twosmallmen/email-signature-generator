@@ -6,7 +6,6 @@ import {Button, Container, FormControlLabel, Switch, TextField, Typography,} fro
 //import Logo from "./assets/Logo.png";
 import Signature from "./Signature";
 import {CheckOutlined, FileCopyOutlined} from "@material-ui/icons";
-import CircularProgressWithLabel from "./CircularProgressWithLabel";
 import "./App.css";
 
 let Logo = 'https://twosmallmen.com/wp-content/uploads/2022/10/Logo.png'
@@ -184,7 +183,6 @@ function App() {
         if (progress > 0) {
             return (
                 <div className={classes.centeredText}>
-                    <CircularProgressWithLabel variant="determinate" value={progress}/>
                 </div>
             );
         } else {
