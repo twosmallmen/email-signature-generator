@@ -1,17 +1,9 @@
 import {PhotoSignatureProps} from "./App";
 //import Logo from "./assets/Logo.png";
 
-let Logo ='https://twosmallmen.com/wp-content/uploads/2022/10/Logo.png'
 
 const Signature = (props: PhotoSignatureProps) => {
-    let instaIcon = 'https://twosmallmen.com/wp-content/uploads/2022/10/Insta-icon.png'
-    let linkedinIcon = 'https://twosmallmen.com/wp-content/uploads/2022/10/linkedin-icon.png'
-    let fbIcon = 'https://twosmallmen.com/wp-content/uploads/2022/10/facebook-icon.png'
-    let youTubeIcon = 'https://twosmallmen.com/wp-content/uploads/2022/10/youtube-icon-v2.png'
-    let instaURL = 'https://www.instagram.com/twosmallmencanada/?hl=en'
-    let linkedURL = 'https://ca.linkedin.com/company/twosmallmencanada'
-    let fbURL = 'https://www.facebook.com/twosmallmencanada/'
-    let youtubeURL = 'https://www.youtube.com/channel/UCWoGM_yzOGsOffExAW4uQ2w'
+
 
 
 
@@ -23,112 +15,26 @@ const Signature = (props: PhotoSignatureProps) => {
 
       };
 
-      const mainimagestyle = {
-        width: "150px",
-        height: "150px",
-         margin: "20px"
-
-      }
-      const verticallinestyle = {
-        borderRight: "2px solid #004193",
-        height: "175px",
-        marginLeft: "10px", 
-        marginRight: "20px",
-        paddingRight: "30px",
-
-      }    
-
-      const fullnamestyle = {
-
-        fontFamily: "Bebas Neue, impact", 
-        fontSize: "40px",
-        color: "#004193",
-        lineHeight: "20px",
-        paddingTop: "15px",
-        paddingBottom: "10px",
-        marginTop:"25px",
-        marginBottom:"15px",
-      }
-
-      const positionstyle ={
+  
+  
 
 
-        paddingBottom: "10px",
-        fontFamily: "Bebas Neue, impact",
-        fontSize: "28px",
-        color: "#007bff",
-        lineHeight: "22px",
-      }
 
-      const phonewrapperstyle ={
 
-        marginTop: "25px",
-        display: "flex",
-        fontFamily: "Work Sans",
 
-      }
 
-      const phoneicondivstyle ={
 
-        marginRight: "5px",
-
-      }
-
-      const phoneiconstyle ={
-        width: "16px",
-    }
-
-    const emailwrapperstyle ={
-        marginTop: "5px", 
-        display: "flex",
-        fontFamily: "Work Sans",
-    }
-
-    const emailicondivstyle={
-        marginRight: "5px",
-
-    }
-
-    const sociallogosstyle={
-        marginTop: "5px",
-        width: "150px", 
-        display: "flex",
-        alignItems: "flex-start",
-        justifyContent: "space-between", 
-        height: "32px",
-    }
-
-    const bannerstyle={
-        marginTop: "10px",
-        display: "flex",
-    }
 
     const height133={
         height: "100px"
     }
 
-    const height42={
-        height: "42px"
-    }
 
-    const width5={
-        width: "5%"
-    }
+ 
 
-    const width100={
-        width: "100%"
-    }
-    const width80={
-        width: "80%"
-    }
+ 
 
-    const pr5={
-        paddingRight: "5px"
-    }
 
-    const pt5={
-        paddingTop: "5px"
-    }
 
     const padding0={
         padding: "0px 0px 0px 0px"
@@ -250,7 +156,7 @@ const Signature = (props: PhotoSignatureProps) => {
 <table className="sc-gPEVay eQYmiW" style={eQYmiW} cellSpacing="0" cellPadding="0">
 <tbody>
 <tr>
-<td style={vAlignBottom}><span className="sc-jlyJG bbyJzT" style={bbyJzT}><img className="sc-iRbamj blSEcj" style={bbyJzT} src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png" width="13" /></span></td>
+<td style={vAlignBottom}><span className="sc-jlyJG bbyJzT" style={bbyJzT}><img className="sc-iRbamj blSEcj" style={bbyJzT} src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/phone-icon-2x.png" width="13"  alt="phone icon"/></span></td>
 </tr>
 </tbody>
 </table>
@@ -262,7 +168,7 @@ const Signature = (props: PhotoSignatureProps) => {
 <table className="sc-gPEVay eQYmiW" style={eQYmiW} cellSpacing="0" cellPadding="0">
 <tbody>
 <tr>
-<td style={vAlignBottom}><span className="sc-jlyJG bbyJzT" style={bbyJzT}><img className="sc-iRbamjblSEcj" style={bbyJzT} src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png" width="13" /></span></td>
+<td style={vAlignBottom}><span className="sc-jlyJG bbyJzT" style={bbyJzT}><img className="sc-iRbamjblSEcj" style={bbyJzT} src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/email-icon-2x.png" width="13" alt="email icon"/></span></td>
 </tr>
 </tbody>
 </table>
@@ -274,7 +180,7 @@ const Signature = (props: PhotoSignatureProps) => {
 <table className="sc-gPEVay eQYmiW" style={eQYmiW} cellSpacing="0" cellPadding="0">
 <tbody>
 <tr>
-<td style={vAlignBottom}><span className="sc-jlyJG bbyJzT" style={bbyJzT}><img className="sc-iRbamj blSEcj" style={bbyJzT} src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png" width="13" /></span></td>
+<td style={vAlignBottom}><span className="sc-jlyJG bbyJzT" style={bbyJzT}><img className="sc-iRbamj blSEcj" style={bbyJzT} src="https://cdn2.hubspot.net/hubfs/53/tools/email-signature-generator/icons/link-icon-2x.png" width="13" alt="link icon" /></span></td>
 </tr>
 </tbody>
 </table>
@@ -290,7 +196,7 @@ const Signature = (props: PhotoSignatureProps) => {
 </td>
 </tr>
 <tr>
-<td><a className="sc-fAjcbJ byigni" style={byigni} href="https://twosmallmen.com/about-us/giving-back/" target="_blank" rel="noopener noreferrer"><img className="sc-caSCKo jjNSwx" style={jjNSwx} role="presentation" src="https://twosmallmen.com/wp-content/uploads/2022/10/TSM-Email-Banner-6.png" /></a></td>
+<td><a className="sc-fAjcbJ byigni" style={byigni} href="https://twosmallmen.com/about-us/giving-back/" target="_blank" rel="noopener noreferrer"><img className="sc-caSCKo jjNSwx" style={jjNSwx} role="presentation" src="https://twosmallmen.com/wp-content/uploads/2022/10/TSM-Email-Banner-6.png" alt="banner"/></a></td>
 </tr>
 </tbody>
 </table>
