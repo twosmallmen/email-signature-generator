@@ -173,7 +173,7 @@ const Signature = (props: PhotoSignatureProps) => {
 </tbody>
 </table>
 </td>
-<td style={padding0}><a className="sc-gipzik iyhjGb" style={iyhjGb} href="mailto:'+{props.email}+'">{props.email}@twosmallmen.com</a></td>
+<td style={padding0}><a className="sc-gipzik iyhjGb" style={iyhjGb} href={'mailto:'+props.email+'@twosmallmen.com'}>{props.email}@twosmallmen.com</a></td>
 </tr>
 <tr style={vAlignMiddle}>
 <td style={{...vAlignMiddle, ...width30}}>
