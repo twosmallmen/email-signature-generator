@@ -161,7 +161,7 @@ const Signature = (props: PhotoSignatureProps) => {
 </tbody>
 </table>
 </td>
-<td style={{...padding0, ...color404040}}><a className="sc-gipzik iyhjGb" style={iyhjGb} href="tel:(250) 498-3996">(250) 498-3996</a></td>
+<td style={{...padding0, ...color404040}}><a className="sc-gipzik iyhjGb" style={iyhjGb} href={'tel:'+props.phone+''}>{props.phone}</a></td>
 </tr>
 <tr style={vAlignMiddle}>
 <td style={{...vAlignMiddle, ...width30}}>
