@@ -135,9 +135,9 @@ const Signature = (props: PhotoSignatureProps) => {
 
     return (
     <div className="signaturebody">
-                <div className={"signature"} style={signaturestyle} >
+                <div style={signaturestyle} >
 
-                <table className="sc-gPEVay eQYmiW" style={eQYmiW} cellSpacing="0" cellPadding="0">
+                <table className="signature" style={eQYmiW} cellSpacing="0" cellPadding="0">
 <tbody>
 <tr>
 <td>
