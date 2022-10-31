@@ -115,8 +115,6 @@ const Signature = (props: PhotoSignatureProps) => {
         textDecoration: "none!important",
         lineHeight: "1",
         fontSize: "12px",
-        borderRadius: "3px",
-        border: "initial none initial"
 
     }
 
